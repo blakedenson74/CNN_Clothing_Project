@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pkl
+data/fashion-dataset/
+data/images/
+data/myntradataset/images/
