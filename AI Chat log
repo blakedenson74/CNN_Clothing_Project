@@ -1,0 +1,41 @@
+User: I’m trying to understand the difference between image classification and image retrieval. Why would retrieval make more sense for fashion applications?
+
+AI: Classification predicts a fixed category label such as “shirt” or “shoe,” while retrieval systems rank visually or semantically similar items. For fashion applications, users usually want similar products rather than a single category prediction, so retrieval is often more practical.
+
+User: What exactly is CLIP doing in a retrieval system?
+
+AI: CLIP maps images and text into a shared embedding space using contrastive learning. Similar images tend to have embeddings that are close together, which makes nearest-neighbor similarity search possible.
+
+User: So the embeddings are basically numerical representations of semantic meaning?
+
+AI: Exactly. They encode visual and semantic information into vectors that can be compared mathematically using cosine similarity.
+
+User: Why is cosine similarity commonly used instead of Euclidean distance?
+
+AI: Cosine similarity compares vector direction rather than magnitude. Since CLIP embeddings are normalized, direction is a stronger indicator of semantic similarity.
+
+User: I’ve also been looking at BLIP. How does that fit into the pipeline differently from CLIP?
+
+AI: BLIP focuses on vision-language generation tasks such as image captioning. In a multimodal retrieval pipeline, BLIP can generate semantic descriptions while CLIP handles embedding generation and retrieval.
+
+User: That makes sense. So BLIP improves interpretability while CLIP improves retrieval?
+
+AI: Correct. BLIP provides natural-language understanding, while CLIP provides semantic similarity search.
+
+User: I was also reading about FAISS. Is that replacing embeddings?
+
+AI: No. FAISS does not replace embeddings. CLIP still generates embeddings, but FAISS provides a scalable indexing and nearest-neighbor search system for large vector collections.
+
+User: So precomputing embeddings and storing them locally is basically the first step toward a vector database architecture?
+
+AI: Yes. Your current setup functions like a small local vector store. FAISS would optimize retrieval speed and scalability for larger datasets.
+
+User: What would be the main limitation of a smaller dataset for this kind of project?
+
+AI: Smaller datasets are useful for benchmarking classification models, but it uses low-resolution grayscale images and limited categories. Retrieval systems generally benefit from higher-resolution images, richer metadata, and more visually diverse product examples.
+
+User: What evaluation metrics make the most sense for retrieval systems?
+
+AI: Retrieval systems are commonly evaluated using Recall@K, Precision@K, Mean Reciprocal Rank (MRR), and retrieval latency rather than classification metrics like accuracy or AUROC.
+
+
